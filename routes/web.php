@@ -15,7 +15,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-// Route::group(['middleware' => 'auth'], function(){
+Route::group(['middleware' => 'auth'], function(){
 	Route::resource('produk', 'ProdukController');
 	Route::get('admin', function(){
 		echo "selamat datang admin" ;
@@ -23,7 +23,7 @@ Route::get('/', function () {
 	Route::resource('kategori', 'KategoriController');
 	Route::get('datakategori', 'KategoriController@listData')->name('dataKategori');	
 	Route::get('dataproduk', 'ProdukController@listData')->name('dataProduk');	
-// });
+});
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
